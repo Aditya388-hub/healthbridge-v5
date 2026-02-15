@@ -1,0 +1,98 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.description {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    color: hsl(var(--foreground));
+}
+
+.dailyFact {
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    margin-bottom: 3rem;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.factLabel {
+    display: block;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.card h2 {
+    font-size: 1.5rem;
+}
+
+.content {
+    line-height: 1.6;
+    color: hsl(var(--foreground));
+}
+
+.actionBtn {
+    margin-top: auto;
+    align-self: flex-start;
+    color: var(--primary);
+    font-weight: 600;
+    padding: 0.5rem 0;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s;
+}
+
+.actionBtn:hover {
+    border-color: var(--primary);
+}
+
+/* Themes */
+.green .title {
+    color: hsl(var(--secondary));
+}
+
+.green .factLabel {
+    color: hsl(var(--secondary));
+}
+
+.purple .title {
+    color: hsl(var(--accent));
+}
+
+.purple .factLabel {
+    color: hsl(var(--accent));
+}

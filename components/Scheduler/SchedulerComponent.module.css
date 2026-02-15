@@ -1,0 +1,183 @@
+/* Shared container styles */
+.viewContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    height: 100%;
+}
+
+.dayTabs {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.dayTab {
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius);
+    font-weight: 600;
+    color: hsl(var(--foreground));
+    background: transparent;
+    width: 100%;
+    transition: background 0.2s;
+}
+
+.activeTab {
+    background: hsl(var(--primary));
+    color: white;
+}
+
+.routineList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex: 1;
+}
+
+.routineCard {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: white;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.routineCard:hover {
+    transform: translateX(4px);
+    border-color: hsl(var(--primary));
+}
+
+.routineCard::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+}
+
+.physical::before {
+    background-color: hsl(var(--secondary));
+}
+
+.mental::before {
+    background-color: hsl(var(--accent));
+}
+
+.completed {
+    opacity: 0.6;
+    text-decoration: line-through;
+    background-color: hsl(var(--background));
+}
+
+.routineTime {
+    font-weight: 700;
+    color: hsl(var(--foreground));
+    min-width: 60px;
+}
+
+.routineContent {
+    flex: 1;
+}
+
+.routineContent h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.2rem;
+}
+
+.routineContent p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Builder Modal Styles (Simulating Tailwind classes I used) */
+.modalOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 1rem;
+}
+
+.modalContent {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.optionBtn {
+    width: 100%;
+    text-align: left;
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    margin-bottom: 0.75rem;
+    transition: all 0.2s;
+}
+
+.optionBtn:hover {
+    border-color: hsl(var(--primary));
+    background-color: hsla(var(--primary) / 0.05);
+}
+
+.formGroup {
+    margin-bottom: 1rem;
+}
+
+.formLabel {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.formInput {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    font-family: inherit;
+}
+
+.actionBtn {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+}
+
+.primaryBtn {
+    background: hsl(var(--primary));
+    color: white;
+}
+
+.secondaryBtn {
+    background: transparent;
+    color: #666;
+}

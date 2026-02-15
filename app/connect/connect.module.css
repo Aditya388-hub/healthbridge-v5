@@ -1,0 +1,89 @@
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+    text-align: center;
+}
+
+.title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    color: hsl(var(--foreground));
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    padding: 2rem;
+    border-radius: var(--radius);
+    background: white;
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+    color: inherit;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+    font-size: 1.25rem;
+}
+
+.connectBtn {
+    margin-top: auto;
+    padding: 0.5rem 1.5rem;
+    border-radius: 2rem;
+    background: black;
+    color: white;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+}
+
+.instagram {
+    border-color: #E1306C;
+}
+
+.instagram svg {
+    color: #E1306C;
+}
+
+.strava {
+    border-color: #FC4C02;
+}
+
+.strava svg {
+    color: #FC4C02;
+}
+
+.health {
+    border-color: #ff2d55;
+}
+
+.health svg {
+    color: #ff2d55;
+}
+
+.samsung {
+    border-color: #1428a0;
+}
+
+.samsung svg {
+    color: #1428a0;
+}

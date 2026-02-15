@@ -1,0 +1,172 @@
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 0;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navLinks {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.navLink {
+    text-decoration: none;
+    color: var(--muted-foreground);
+    font-weight: 500;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.navLink:hover {
+    color: hsl(var(--primary));
+}
+
+.navLink.active {
+    color: hsl(var(--primary));
+}
+
+.getStarted {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    color: white;
+    padding: 0.6rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(var(--primary) / 0.3);
+}
+
+.getStarted:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(var(--primary) / 0.4);
+}
+
+.mobileMenuBtn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--foreground);
+}
+
+.userProfile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: hsl(var(--primary));
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+/* BRANDING STYLES */
+.brandWrapper {
+    text-decoration: none;
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+}
+
+.brandWrapper:hover {
+    transform: scale(1.02);
+}
+
+.branding {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.logoIcon {
+    width: 38px;
+    height: 38px;
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 6px;
+    box-shadow: 0 4px 12px rgba(var(--primary) / 0.2);
+}
+
+.heartPulseSVG {
+    width: 100%;
+    height: 100%;
+}
+
+.brandText {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+.mainTitle {
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    color: hsl(var(--foreground));
+}
+
+.subTitle {
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: hsl(var(--secondary));
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    .mobileMenuBtn {
+        display: block;
+    }
+
+    .navLinks {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        padding: 2rem;
+        border-bottom: 1px solid var(--border);
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .navLinks.show {
+        display: flex;
+    }
+
+    .navLink {
+        width: 100%;
+        padding: 1rem 0;
+    }
+
+    .getStarted {
+        width: 100%;
+        text-align: center;
+        margin-top: 1rem;
+    }
+}

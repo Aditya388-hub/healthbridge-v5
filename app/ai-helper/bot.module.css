@@ -1,0 +1,121 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    height: calc(100vh - 80px);
+}
+
+.chatWindow {
+    background: white;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.messages {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.message {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    max-width: 80%;
+}
+
+.ai {
+    align-self: flex-start;
+}
+
+.user {
+    align-self: flex-end;
+    flex-direction: row-reverse;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.ai .avatar {
+    background: hsl(var(--primary));
+    color: white;
+}
+
+.user .avatar {
+    background: hsl(var(--secondary));
+    color: white;
+}
+
+.bubble {
+    padding: 1rem;
+    border-radius: 1rem;
+    line-height: 1.5;
+    background: #f8f8f8;
+}
+
+.ai .bubble {
+    background: #f0f4ff;
+    border-top-left-radius: 4px;
+}
+
+.user .bubble {
+    background: hsl(var(--secondary));
+    color: white;
+    border-top-right-radius: 4px;
+}
+
+.typing {
+    font-size: 0.8rem;
+    color: #999;
+    margin-left: 3rem;
+}
+
+.inputArea {
+    padding: 1rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    gap: 1rem;
+}
+
+.inputArea input {
+    flex: 1;
+    padding: 0.8rem;
+    border-radius: 2rem;
+    border: 1px solid var(--border);
+    outline: none;
+}
+
+.inputArea input:focus {
+    border-color: hsl(var(--primary));
+}
+
+.inputArea button {
+    background: hsl(var(--primary));
+    color: white;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inputArea button:disabled {
+    opacity: 0.5;
+}
