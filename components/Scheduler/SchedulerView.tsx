@@ -1,14 +1,9 @@
+
 'use client';
 
 import { Routine } from '@/types';
 import { CheckCircle, Circle } from 'lucide-react';
 import { useState } from 'react';
-
-// Using inline Tailwind classes (wait, I removed tailwind. I need to convert to CSS modules or inline styles. 
-// I used tailwind classes in RoutineBuilder too by mistake because of habit. I must fix that.)
-// Actually, since I removed tailwind, those classes won't work and will look unstyled.
-// I will create a CSS module for the Scheduler components and share it.
-
 import styles from './SchedulerComponent.module.css';
 
 interface Props {
@@ -21,12 +16,10 @@ const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 export default function SchedulerView({ routines, onToggle }: Props) {
     const [selectedDay, setSelectedDay] = useState('Mon');
 
-    // Filter routines for the selected day
-    // Assuming routine.days contains short day names
     const dayRoutines = routines.filter(r => r.days.includes(selectedDay))
         .sort((a, b) => (a.time || '').localeCompare(b.time || ''));
 
-       return (
+    return (
         <div className={styles.viewContainer}>
             <div className={styles.dayTabs}>
                 {DAYS.map(day => (
@@ -81,4 +74,4 @@ export default function SchedulerView({ routines, onToggle }: Props) {
             </div>
         </div>
     );
-
+}
