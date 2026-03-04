@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { Routine, RoutineType } from '@/types';
 import styles from './SchedulerComponent.module.css';
 
-// We will use inline styles for the modal for speed, but follow the design system
 const PURPOSE_OPTIONS = [
     'General Wellbeing',
     'Weight Loss',
@@ -38,7 +37,6 @@ export default function RoutineBuilder({ onSave, onClose }: Props) {
     const [purpose, setPurpose] = useState('');
     const [selectedSuggestion, setSelectedSuggestion] = useState<Partial<Routine> | null>(null);
 
-    // Custom Routine Form
     const [title, setTitle] = useState('');
     const [type, setType] = useState<RoutineType>('PHYSICAL');
     const [days, setDays] = useState<string[]>(['Mon', 'Tue', 'Wed', 'Thu', 'Fri']);
@@ -57,6 +55,7 @@ export default function RoutineBuilder({ onSave, onClose }: Props) {
     };
 
     const handleSave = () => {
+        if (!title.trim()) return;
         const newRoutine: Routine = {
             id: crypto.randomUUID(),
             title,
@@ -81,11 +80,7 @@ export default function RoutineBuilder({ onSave, onClose }: Props) {
                 {step === 1 && (
                     <div className={styles.routineList}>
                         {PURPOSE_OPTIONS.map(p => (
-                            <button
-                                key={p}
-                                onClick={() => handlePurposeSelect(p)}
-                                className={styles.optionBtn}
-                            >
+                            <button key={p} onClick={() => handlePurposeSelect(p)} className={styles.optionBtn}>
                                 {p}
                             </button>
                         ))}
@@ -96,11 +91,7 @@ export default function RoutineBuilder({ onSave, onClose }: Props) {
                     <div className={styles.routineList}>
                         <p style={{ fontSize: '0.9rem', color: '#666', marginBottom: '0.5rem' }}>Based on "{purpose}":</p>
                         {(SUGGESTIONS[purpose] || SUGGESTIONS['General Wellbeing']).map((s, i) => (
-                            <button
-                                key={i}
-                                onClick={() => handleSuggestionSelect(s)}
-                                className={styles.optionBtn}
-                            >
+                            <button key={i} onClick={() => handleSuggestionSelect(s)} className={styles.optionBtn}>
                                 <span style={{ display: 'block', fontWeight: 600 }}>{s.title}</span>
                                 <span style={{ fontSize: '0.75rem', color: '#666', textTransform: 'uppercase' }}>{s.type}</span>
                             </button>
@@ -115,62 +106,51 @@ export default function RoutineBuilder({ onSave, onClose }: Props) {
                     <div className={styles.routineList}>
                         <div className={styles.formGroup}>
                             <label className={styles.formLabel}>Title</label>
-                            <input
-                                type="text"
-                                value={title}
-                                onChange={(e) => setTitle(e.target.value)}
-                                className={styles.formInput}
-                            />
+                            <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} className={styles.formInput} />
                         </div>
 
                         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                             <div className={styles.formGroup}>
                                 <label className={styles.formLabel}>Time</label>
-                                <input
-                                    type="time"
-                                    value={time}
-                                    onChange={(e) => setTime(e.target.value)}
-                                    className={styles.formInput}
-                                />
+                                <input type="time" value={time} onChange={(e) => setTime(e.target.value)} className={styles.formInput} />
                             </div>
                             <div className={styles.formGroup}>
                                 <label className={styles.formLabel}>Type</label>
-                                <select
-                                    value={type}
-                                    onChange={(e) => setType(e.target.value as RoutineType)}
-                                    className={styles.formInput}
-                                >
+                                <select value={type} onChange={(e) => setType(e.target.value as RoutineType)} className={styles.formInput}>
                                     <option value="PHYSICAL">Physical</option>
                                     <option value="MENTAL">Mental</option>
                                 </select>
                             </div>
                         </div>
 
-                       <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.5rem', marginTop: '1.5rem' }}>
-    <button
-        onClick={onClose}
-        className={`${styles.actionBtn} ${styles.secondaryBtn}`}
-    >
-        Close
-    </button>
-    <button
-        onClick={() => {
-            handleSave();
-            setTitle(''); // Clear the title for the next task
-            setStep(2); // Go back to the suggestions step
-        }}
-        className={`${styles.actionBtn} ${styles.secondaryBtn}`}
-        style={{ borderColor: 'hsl(var(--primary))', color: 'hsl(var(--primary))' }}
-    >
-        Add & Add Another
-    </button>
-    <button
-        onClick={() => {
-            handleSave();
-            onClose();
-        }}
-        className={`${styles.actionBtn} ${styles.primaryBtn}`}
-    >
-        Add & Close
-    </button>
-</div>
+                        <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.5rem', marginTop: '1.5rem' }}>
+                            <button onClick={onClose} className={`${styles.actionBtn} ${styles.secondaryBtn}`}>
+                                Close
+                            </button>
+                            <button
+                                onClick={() => {
+                                    handleSave();
+                                    setTitle('');
+                                    setStep(2);
+                                }}
+                                className={`${styles.actionBtn} ${styles.secondaryBtn}`}
+                                style={{ borderColor: 'hsl(var(--primary))', color: 'hsl(var(--primary))' }}
+                            >
+                                Add & Add Another
+                            </button>
+                            <button
+                                onClick={() => {
+                                    handleSave();
+                                    onClose();
+                                }}
+                                className={`${styles.actionBtn} ${styles.primaryBtn}`}
+                            >
+                                Add & Close
+                            </button>
+                        </div>
+                    </div>
+                )}
+            </div>
+        </div>
+    );
+}
