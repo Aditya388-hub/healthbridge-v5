@@ -146,23 +146,31 @@ export default function RoutineBuilder({ onSave, onClose }: Props) {
                             </div>
                         </div>
 
-                        <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.5rem', marginTop: '1.5rem' }}>
-                            <button
-                                onClick={onClose}
-                                className={`${styles.actionBtn} ${styles.secondaryBtn}`}
-                            >
-                                Cancel
-                            </button>
-                            <button
-                                onClick={handleSave}
-                                className={`${styles.actionBtn} ${styles.primaryBtn}`}
-                            >
-                                Add
-                            </button>
-                        </div>
-                    </div>
-                )}
-            </div>
-        </div>
-    );
-}
+                       <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.5rem', marginTop: '1.5rem' }}>
+    <button
+        onClick={onClose}
+        className={`${styles.actionBtn} ${styles.secondaryBtn}`}
+    >
+        Close
+    </button>
+    <button
+        onClick={() => {
+            handleSave();
+            setTitle(''); // Clear the title for the next task
+            setStep(2); // Go back to the suggestions step
+        }}
+        className={`${styles.actionBtn} ${styles.secondaryBtn}`}
+        style={{ borderColor: 'hsl(var(--primary))', color: 'hsl(var(--primary))' }}
+    >
+        Add & Add Another
+    </button>
+    <button
+        onClick={() => {
+            handleSave();
+            onClose();
+        }}
+        className={`${styles.actionBtn} ${styles.primaryBtn}`}
+    >
+        Add & Close
+    </button>
+</div>
