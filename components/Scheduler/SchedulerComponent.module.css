@@ -181,3 +181,52 @@
     background: transparent;
     color: #666;
 }
+.viewHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.quickAddBtn {
+    padding: 0.4rem 0.8rem;
+    background: hsla(var(--primary) / 0.1);
+    color: hsl(var(--primary));
+    border-radius: 2rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.quickAddBtn:hover {
+    background: hsl(var(--primary));
+    color: white;
+}
+
+.emptyState {
+    text-align: center;
+    padding: 3rem 1rem;
+    background: hsla(var(--background) / 0.5);
+    border: 2px dashed var(--border);
+    border-radius: var(--radius);
+}
+
+.taskGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.secondaryBtn {
+    background: transparent;
+    color: #666;
+    border: 1px solid var(--border);
+    cursor: pointer;
+}
+
+.primaryBtn {
+    cursor: pointer;
+}
